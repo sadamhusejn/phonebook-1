@@ -22,6 +22,23 @@ public class PhoneBook implements ShellDependent {
     }
 
     @Command
+    public void createNote(String name, String txt) {
+        Note note = new Note();
+        note.setNote(txt);
+        note.setName(name);
+        recordList.add(note);
+    }
+
+    @Command
+    public void createReminder(String name, String txt, String time) {
+        Reminder rem = new Reminder();
+        rem.setName(name);
+        rem.setNote(txt);
+        rem.setTime(time);
+        recordList.add(rem);
+    }
+
+    @Command
     public List<Record> list() {
         return recordList;
     }

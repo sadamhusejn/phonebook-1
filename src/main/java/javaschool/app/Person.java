@@ -33,4 +33,9 @@ public class Person extends Record {
         return getId() + " " + getName() + " " + email + " " + phones;
     }
 
-}
+    @Override
+    public boolean contains(String str) {
+        return super.contains(str) || email.contains(str);
+    }
+
+    }

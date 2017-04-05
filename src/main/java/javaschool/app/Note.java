@@ -15,4 +15,9 @@ public class Note extends Record {
     public String toString() {
         return getId() + " " + getName() + " " + note;
     }
+
+    public boolean contains(String str) {
+        return super.contains(str) || note.contains(str);
+    }
+
 }

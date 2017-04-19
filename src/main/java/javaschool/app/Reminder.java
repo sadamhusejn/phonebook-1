@@ -1,13 +1,18 @@
 package javaschool.app;
 
-public class Reminder extends Note {
-    private String time;
+import asg.cliche.Command;
 
-    public String getTime() {
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Reminder extends Note {
+    private LocalDateTime time;
+
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 
@@ -15,4 +20,11 @@ public class Reminder extends Note {
     public String toString() {
         return super.toString() + " " + time;
     }
+    @Command
+    public void setTime(String time){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm");
+        this.time = LocalDateTime.parse(time,dtf);
+    }
+
 }
+
